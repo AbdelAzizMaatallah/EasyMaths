@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>محتوى EasyMaths</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #fafafa;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #6a1b9a;
+      margin-bottom: 20px;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    a {
+      display: block;
+      margin: 10px;
+      color: #4a148c;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">تحميل...</h1>
+
+  <div class="section">
+    <h2>الدروس</h2>
+    <div id="lessons"></div>
+  </div>
+
+  <div class="section">
+    <h2>التمارين</h2>
+    <div id="exercises"></div>
+  </div>
+
+  <div class="section">
+    <h2>الفروض والامتحانات</h2>
+    <div id="tests"></div>
+  </div>
+
+  <script>
+    function getQueryParams() {
+      const params = {};
+      const query = window.location.search.substring(1);
+      query.split("&").forEach(part => {
+        const [key, value] = part.split("=");
+        params[key] = decodeURIComponent(value);
+      });
+      return params;
+    }
+
+    const params = getQueryParams();
+    const title = document.getElementById("title");
+    const lessons = document.getElementById("lessons");
+    const exercises = document.getElementById("exercises");
+    const tests = document.getElementById("tests");
+
+    // عرض العنوان حسب المعطيات
+    let label = "";
+    if (params.silk === "ide") label += "السلك الإعدادي - ";
+    if (params.silk === "tahili") label += "السلك التأهيلي - ";
+
+    switch (params.niveau) {
+      case "1coll": label += "الأولى إعدادي"; break;
+      case "2coll": label += "الثانية إعدادي"; break;
+      case "3coll": label += "الثالثة إعدادي"; break;
+      case "tc": label += "الجذع المشترك"; break;
+      case "1bac": label += "الأولى باك"; break;
+      case "2bac": label += "الثانية باك"; break;
+    }
+
+    if (params.filiere) {
+      label += " - ";
+      switch (params.filiere) {
+        case "math": label += "علوم رياضية"; break;
+        case "svt": label += "علوم الحياة"; break;
+        case "lettres": label += "آداب"; break;
+        case "tech": label += "تكنولوجيا"; break;
+      }
+    }
+
+    title.innerText = label;
+
+    // مثال: توليد روابط حسب المعطيات
+    // ستحتاج إلى تنظيم ملفاتك مثل: pdf/2bac/math/lessons/001.pdf
+    const path = `pdf/${params.niveau}/${params.filiere || 'general'}`;
+
+    lessons.innerHTML = `
+      <a href="${path}/lessons/001.pdf" target="_blank">الدرس 1</a>
+      <a href="${path}/lessons/002.pdf" target="_blank">الدرس 2</a>
+    `;
+
+    exercises.innerHTML = `
+      <a href="${path}/exercises/001.pdf" target="_blank">تمرين 1</a>
+      <a href="${path}/exercises/002.pdf" target="_blank">تمرين 2</a>
+    `;
+
+    tests.innerHTML = `
+      <a href="${path}/tests/001.pdf" target="_blank">فرض رقم 1</a>
+      <a href="${path}/tests/002.pdf" target="_blank">امتحان وطني</a>
+    `;
+  </script>
+
+</body>
+</html>
