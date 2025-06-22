@@ -129,6 +129,43 @@
     let content = el.nextElementSibling;
     content.style.display = content.style.display === "block" ? "none" : "block";
   }
+
+  <div class="unit-container">
+  <div class="unit-header">
+    <div class="unit-number">2</div>
+    <h2> Opérations sur les nombres décimaux positifs </h2>
+  </div>
+
+  <div class="section-title" onclick="toggleSection(this)">📘 Cours </div>
+  <div class="resource-list">
+    <a href="#" class="pdf">الدرس 1</a>
+    <a href="#" class="pdf">الدرس 2</a>
+    <a href="#" class="pdf">الدرس 3</a>
+    <a href="#" class="pdf">ملخص الدرس</a>
+  </div>
+
+  <div class="section-title" onclick="toggleSection(this)">📗 Exercices </div>
+  <div class="resource-list">
+    <a href="#" class="pdf">تمارين غير محلولة 1</a>
+    <a href="#" class="pdf">تمارين غير محلولة 2</a>
+    <a href="#" class="pdf">تمارين غير محلولة 3</a>
+    <a href="#" class="done">تمارين محلولة</a>
+  </div>
+
+  <div class="section-title" onclick="toggleSection(this)">📺 Videos</div>
+  <div class="resource-list">
+    <a href="#" class="video">شرح بالفيديو</a>
+    <a href="#" class="done">فيديو مع تمارين محلولة</a>
+  </div>
+</div>
+
+<script>
+  function toggleSection(el) {
+    el.classList.toggle("active");
+    let content = el.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  }
+  
 </script>
 
 </body>
