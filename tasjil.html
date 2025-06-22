@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تسجيل الزوار - EasyMaths</title>
+  <!-- رابط Bootstrap RTL -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: 'Cairo', sans-serif, Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #333;
+    }
+    .register-form {
+      background-color: #fff;
+      padding: 30px 35px;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+      transition: box-shadow 0.3s ease;
+    }
+    .register-form:hover {
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    .register-form h2 {
+      margin-bottom: 25px;
+      color: #5a2d82;
+      font-weight: 700;
+      text-align: center;
+    }
+    .form-label {
+      font-weight: 600;
+      color: #5a2d82;
+    }
+    .form-control:focus {
+      border-color: #764ba2;
+      box-shadow: 0 0 8px rgba(118,75,162,0.5);
+    }
+    .btn-submit {
+      background: #764ba2;
+      border: none;
+      width: 100%;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: white;
+      border-radius: 50px;
+      transition: background 0.3s ease;
+    }
+    .btn-submit:hover {
+      background: #5a2d82;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="https://formspree.io/f/mayvlrzk" method="POST" class="register-form" novalidate>
+    <h2>تسجيل الزوار</h2>
+
+    <div class="mb-4">
+      <label for="name" class="form-label">الاسم</label>
+      <input type="text" id="name" name="name" required class="form-control" placeholder="أدخل اسمك" />
+    </div>
+
+    <div class="mb-4">
+      <label for="email" class="form-label">البريد الإلكتروني</label>
+      <input type="email" id="email" name="email" required class="form-control" placeholder="أدخل بريدك الإلكتروني" />
+    </div>
+
+    <button type="submit" class="btn-submit">تسجيل</button>
+  </form>
+
+</body>
+</html>
