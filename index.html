@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EasyMaths - اختيار القسم</title>
+  <title>EasyMaths - اختيار السلك والمستوى</title>
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background: #f4f4f4;
+      background-color: #f0f0f0;
       padding: 30px;
       text-align: center;
     }
@@ -19,108 +19,9 @@
       margin: 10px;
       font-size: 1rem;
       border-radius: 8px;
-      border: 1px solid #aaa;
+      border: 1px solid #999;
       min-width: 220px;
     }
     button {
       background-color: #6a1b9a;
       color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #4a148c;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>مرحبا بك في EasyMaths</h1>
-  <h2>اختر السلك</h2>
-
-  <select id="sileSelect">
-    <option value="">-- اختر السلك --</option>
-    <option value="ide">الإعدادي</option>
-    <option value="tahili">التأهيلي</option>
-  </select>
-
-  <div id="niveauDiv" style="display:none;">
-    <h2>اختر المستوى</h2>
-    <select id="niveauSelect"></select>
-  </div>
-
-  <div id="filiereDiv" style="display:none;">
-    <h2>اختر الشعبة / المسلك</h2>
-    <select id="filiereSelect">
-      <option value="">-- اختر الشعبة --</option>
-      <option value="sciencesMath">علوم رياضية</option>
-      <option value="sciencesVie">علوم الحياة</option>
-      <option value="lettres">آداب</option>
-      <option value="technologie">تكنولوجيا</option>
-    </select>
-  </div>
-
-  <button id="goBtn" style="display:none;">اذهب إلى المحتوى</button>
-
-  <script>
-    const sileSelect = document.getElementById('sileSelect');
-    const niveauDiv = document.getElementById('niveauDiv');
-    const niveauSelect = document.getElementById('niveauSelect');
-    const filiereDiv = document.getElementById('filiereDiv');
-    const filiereSelect = document.getElementById('filiereSelect');
-    const goBtn = document.getElementById('goBtn');
-
-    sileSelect.addEventListener('change', () => {
-      const sile = sileSelect.value;
-      if (sile === "ide") {
-        niveauSelect.innerHTML = `
-          <option value="">-- اختر المستوى --</option>
-          <option value="1coll">الأولى إعدادي</option>
-          <option value="2coll">الثانية إعدادي</option>
-          <option value="3coll">الثالثة إعدادي</option>`;
-        filiereDiv.style.display = "none";
-      } else if (sile === "tahili") {
-        niveauSelect.innerHTML = `
-          <option value="">-- اختر المستوى --</option>
-          <option value="tc">الجذع المشترك</option>
-          <option value="1bac">الأولى باكالوريا</option>
-          <option value="2bac">الثانية باكالوريا</option>`;
-      }
-      niveauDiv.style.display = "block";
-      goBtn.style.display = "none";
-    });
-
-    niveauSelect.addEventListener('change', () => {
-      const sile = sileSelect.value;
-      const niveau = niveauSelect.value;
-      if (sile === "tahili" && niveau !== "") {
-        filiereDiv.style.display = "block";
-        goBtn.style.display = "none";
-      } else if (sile === "ide" && niveau !== "") {
-        filiereDiv.style.display = "none";
-        goBtn.style.display = "inline-block";
-      }
-    });
-
-    filiereSelect.addEventListener('change', () => {
-      if (filiereSelect.value !== "") {
-        goBtn.style.display = "inline-block";
-      } else {
-        goBtn.style.display = "none";
-      }
-    });
-
-    goBtn.addEventListener('click', () => {
-      const sile = sileSelect.value;
-      const niveau = niveauSelect.value;
-      const filiere = filiereSelect.value;
-      let url = `content.html?silk=${sile}&niveau=${niveau}`;
-      if (sile === "tahili") {
-        url += `&filiere=${filiere}`;
-      }
-      window.location.href = url;
-    });
-  </script>
-
-</body>
-</html>
