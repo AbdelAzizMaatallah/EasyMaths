@@ -1,37 +1,129 @@
-
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>exercices</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EasyMaths - التمارين</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: 'Segoe UI', sans-serif; direction: rtl; background-color: #f7f7f7; color: #333; margin: 0; }
-    header { background-color: #2196f3; color: white; padding: 1rem; text-align: center; }
-    nav { background: #1976d2; display: flex; justify-content: center; gap: 1rem; padding: 0.5rem; }
-    nav a { color: white; text-decoration: none; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    section { padding: 2rem; }
-    footer { background: #eee; text-align: center; padding: 1rem; margin-top: 2rem; }
-    .container { max-width: 800px; margin: auto; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+    nav.navbar {
+      background-color: #0052cc;
+    }
+    nav.navbar a.navbar-brand {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: #fff !important;
+    }
+    nav.navbar .nav-link {
+      color: #e0e0e0 !important;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav.navbar .nav-link:hover,
+    nav.navbar .nav-link.active {
+      color: #ffd43b !important;
+    }
+    .page-title {
+      text-align: center;
+      margin: 40px 0 30px;
+      font-weight: 700;
+      color: #0052cc;
+    }
+    .exercise-list {
+      max-width: 900px;
+      margin: 0 auto 50px;
+    }
+    .exercise-item {
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    .exercise-item:hover {
+      transform: translateY(-8px);
+    }
+    .exercise-item h3 {
+      color: #0052cc;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .exercise-item p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+      color: #555;
+    }
+    .btn-primary {
+      background-color: #ffd43b;
+      border: none;
+      color: #0052cc;
+      font-weight: 700;
+      padding: 10px 22px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background-color: #e6c432;
+      color: #003a99;
+    }
+    footer {
+      background-color: #002d72;
+      color: #eee;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 80px;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>EasyMaths</h1>
-    <p>موقع لدروس و تمارين و فروض الرياضيات للسلك الثانوي</p>
-  </header>
-  <nav>
-    <a href="index.html">🏠 الرئيسية</a>
-    <a href="dros.html">📘 الدرو</a>
-    <a href="exercices.html">📝التمارين</a>
-    <a href="videos.html">🎥 الفيديوهات</a>
-    <a href="imti7anat.html">📑 الفروض والامتحانات</a>
-    <a href="contact.html">📩 تواصل معنا</a>
-  </nav>
-  <section class="container">
-<h2>📝 التمارين</h2><p>تمارين تفاعلية مع تصحيح مفصل لدعم الفهم.</p>
-  </section>
-  <footer><p>&copy; 2025 EasyMaths - جميع الحقوق محفوظة</p></footer>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">EasyMaths</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل التنقل">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+        <li class="nav-item"><a class="nav-link" href="dros.html">الدروس</a></li>
+        <li class="nav-item"><a class="nav-link active" href="exercices.html">التمارين</a></li>
+        <li class="nav-item"><a class="nav-link" href="videos.html">الفيديوهات</a></li>
+        <li class="nav-item"><a class="nav-link" href="imti7anat.html">الامتحانات</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<h2 class="page-title">التمارين</h2>
+
+<div class="exercise-list container">
+  <div class="exercise-item">
+    <h3>تمارين على الدوال الخطية</h3>
+    <p>مجموعة تمارين مع حلول لفهم الدوال الخطية وتطبيقاتها.</p>
+    <a href="pdfs/exercices_dawel_khatiya.pdf" target="_blank" class="btn-primary" rel="noopener noreferrer">تحميل التمارين PDF</a>
+  </div>
+  <div class="exercise-item">
+    <h3>تمارين المعادلات التربيعية</h3>
+    <p>تمارين متنوعة لفهم حل المعادلات التربيعية بطريقة سهلة.</p>
+    <a href="pdfs/exercices_ma3adlat_tarbi3iya.pdf" target="_blank" class="btn-primary" rel="noopener noreferrer">تحميل التمارين PDF</a>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 EasyMaths - جميع الحقوق محفوظة
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
