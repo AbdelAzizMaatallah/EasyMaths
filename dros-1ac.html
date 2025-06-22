@@ -48,9 +48,15 @@
     }
     .section-title {
       font-weight: bold;
-      margin-top: 25px;
       color: #0052cc;
       font-size: 1.3rem;
+      cursor: pointer;
+      margin-top: 25px;
+    }
+    .resource-list {
+      margin-top: 10px;
+      padding-right: 15px;
+      display: none;
     }
     .resource-list a {
       display: block;
@@ -75,12 +81,14 @@
     .done::before {
       content: "✅ ";
     }
-    .folder::before {
-      content: "📁 ";
+    .section-title::before {
+      content: "▶ ";
+      display: inline-block;
+      margin-left: 8px;
+      transition: transform 0.3s ease;
     }
-    .divider {
-      border-top: 1px dashed #ccc;
-      margin: 20px 0;
+    .section-title.active::before {
+      transform: rotate(90deg);
     }
   </style>
 </head>
@@ -92,7 +100,7 @@
     <h2>الموشور القائم والأسطوانة القائمة</h2>
   </div>
 
-  <div class="section-title">📘 الدروس</div>
+  <div class="section-title" onclick="toggleSection(this)">📘 الدروس</div>
   <div class="resource-list">
     <a href="#" class="pdf">الدرس 1</a>
     <a href="#" class="pdf">الدرس 2</a>
@@ -100,9 +108,7 @@
     <a href="#" class="pdf">ملخص الدرس</a>
   </div>
 
-  <div class="divider"></div>
-
-  <div class="section-title">📗 التمارين التطبيقية</div>
+  <div class="section-title" onclick="toggleSection(this)">📗 التمارين التطبيقية</div>
   <div class="resource-list">
     <a href="#" class="pdf">تمارين غير محلولة 1</a>
     <a href="#" class="pdf">تمارين غير محلولة 2</a>
@@ -110,14 +116,20 @@
     <a href="#" class="done">تمارين محلولة</a>
   </div>
 
-  <div class="divider"></div>
-
-  <div class="section-title">📺 الفيديوهات التعليمية</div>
+  <div class="section-title" onclick="toggleSection(this)">📺 الفيديوهات التعليمية</div>
   <div class="resource-list">
     <a href="#" class="video">شرح بالفيديو</a>
     <a href="#" class="done">فيديو مع تمارين محلولة</a>
   </div>
 </div>
+
+<script>
+  function toggleSection(el) {
+    el.classList.toggle("active");
+    let content = el.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+  }
+</script>
 
 </body>
 </html>
