@@ -7,14 +7,15 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
 
-    body {
+    /* إعدادات الصفحة */
+    body, html {
       margin: 0;
       padding: 0;
+      height: 100%;
       font-family: 'Cairo', sans-serif;
       color: #fff;
       text-align: center;
-      height: 100vh;
-      background: url('images/background.jpg') no-repeat center center fixed;
+      background: url('images/bg-alloscool.jpg') no-repeat center center fixed;
       background-size: cover;
       display: flex;
       flex-direction: column;
@@ -22,63 +23,84 @@
       align-items: center;
     }
 
+    /* تظليل الخلفية للوضوح */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 50, 0.6);
+      z-index: 0;
+    }
+
+    /* محتوى الصفحة فوق التظليل */
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      padding: 20px;
+      background-color: rgba(255, 235, 59, 0.9); /* أصفر فاتح شفاف */
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      color: #0d1b2a; /* أزرق غامق */
+    }
+
     h1 {
-      font-size: 4rem;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      font-size: 3rem;
       margin-bottom: 15px;
+      font-weight: 800;
     }
 
     p {
-      font-size: 1.5rem;
-      max-width: 600px;
-      margin: 0 auto 40px;
-      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-weight: 600;
     }
 
     .btn {
-      background-color: rgba(21, 101, 192, 0.85);
-      color: #ffeb3b;
-      font-weight: 700;
+      display: inline-block;
       padding: 15px 40px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0d1b2a;
+      background-color: #1565c0;
       border-radius: 40px;
       text-decoration: none;
-      font-size: 1.4rem;
-      box-shadow: 0 6px 15px rgba(21,101,192,0.7);
-      transition: background-color 0.3s ease;
-      margin: 10px 0;
-      display: inline-block;
-      min-width: 200px;
+      box-shadow: 0 6px 18px rgba(21, 101, 192, 0.7);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     .btn:hover {
-      background-color: rgba(10, 50, 120, 0.9);
-      color: #fff;
+      background-color: #0d1b2a;
+      color: #ffeb3b;
+      box-shadow: 0 8px 25px rgba(255, 235, 59, 0.8);
     }
 
+    /* تجاوب مع الشاشات الصغيرة */
     @media (max-width: 480px) {
       h1 {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
       }
       p {
-        font-size: 1.1rem;
+        font-size: 1rem;
       }
       .btn {
-        font-size: 1.1rem;
         padding: 12px 30px;
-        min-width: 150px;
+        font-size: 1rem;
+      }
+      .container {
+        margin: 0 15px;
       }
     }
   </style>
 </head>
 <body>
 
-  <h1>مرحبًا بك في EasyMaths</h1>
-  <p>منصة تعليمية شاملة لمادة الرياضيات للسلك الإعدادي والثانوي التأهيلي.</p>
-
-  <a href="dros.html" class="btn">الدروس</a>
-  <a href="Tamarin.html" class="btn">التمارين</a>
-  <a href="imti7anat.html" class="btn">الفروض والامتحانات</a>
-  <a href="videos.html" class="btn">الفيديوهات</a>
+  <div class="container">
+    <h1>مرحبًا بك في EasyMaths</h1>
+    <p>منصة تعليمية شاملة لمادة الرياضيات للسلك الإعدادي والثانوي التأهيلي.</p>
+    <a href="dros.html" class="btn">ابدأ بالتعلم</a>
+  </div>
 
 </body>
 </html>
