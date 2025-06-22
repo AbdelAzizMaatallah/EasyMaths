@@ -1,84 +1,92 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EasyMaths - الصفحة الرئيسية</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Cairo', sans-serif;
+      background: url('background.jpg') no-repeat center center fixed;
+      background-size: cover;
       margin: 0;
-      background: url('background.jpg') center center / cover no-repeat;
+      padding: 0;
+      color: #003366;
+    }
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.93);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-    }
-    .overlay {
-      background-color: rgba(255, 255, 255, 0.9);
-      padding: 60px 20px;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
       text-align: center;
     }
+    .logo {
+      width: 90px;
+      margin-bottom: 15px;
+    }
     h1 {
-      font-size: 2.5rem;
-      color: #003a99;
+      font-size: 2.8rem;
       font-weight: 800;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      color: #002d72;
     }
-    p.description {
+    p.lead {
       font-size: 1.2rem;
-      color: #555;
-      margin-bottom: 40px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      color: #444;
     }
-    .level-buttons a {
+    .level-btn {
       display: block;
       background-color: #ffd43b;
       color: #003a99;
-      font-weight: 700;
+      font-weight: bold;
       font-size: 1.3rem;
-      padding: 15px;
+      padding: 15px 30px;
       margin: 15px auto;
-      width: 260px;
+      width: 280px;
       border-radius: 30px;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
     }
-    .level-buttons a:hover {
+    .level-btn:hover {
       background-color: #e6c432;
-      transform: translateY(-3px);
+      transform: scale(1.04);
     }
     footer {
-      background-color: #002d72;
-      color: #eee;
-      text-align: center;
-      padding: 15px;
+      margin-top: 50px;
       font-size: 0.9rem;
+      color: #666;
     }
     @media (max-width: 600px) {
-      h1 { font-size: 1.9rem; }
-      .level-buttons a { width: 90%; }
+      h1 { font-size: 2rem; }
+      .level-btn { width: 90%; font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
 
 <div class="overlay">
-  <h1>مرحبًا بك في EasyMaths 📘</h1>
-  <p class="description">منصة تعليمية مخصصة لدعم تلاميذ السلك الإعدادي في مادة الرياضيات، عبر دروس، تمارين، فيديوهات وامتحانات تفاعلية.</p>
-  
-  <div class="level-buttons">
-    <a href="college1-home.html">الأولى إعدادي</a>
-    <a href="college2-home.html">الثانية إعدادي</a>
-    <a href="college3-home.html">الثالثة إعدادي</a>
-  </div>
-</div>
+  <img src="logoMaatallah.png" alt="شعار EasyMaths" class="logo">
+  <h1>مرحبًا بك في EasyMaths 🎓</h1>
+  <p class="lead">
+    منصة تعليمية مبتكرة لدعم تلاميذ **السلك الإعدادي** في مادة الرياضيات من خلال دروس تفاعلية، تمارين، فيديوهات، وامتحانات.
+  </p>
 
-<footer>
-  &copy; 2025 EasyMaths - جميع الحقوق محفوظة
-</footer>
+  <a href="college1-home.html" class="level-btn">📘 الأولى إعدادي</a>
+  <a href="college2-home.html" class="level-btn">📗 الثانية إعدادي</a>
+  <a href="college3-home.html" class="level-btn">📙 الثالثة إعدادي</a>
+
+  <footer>
+    &copy; 2025 EasyMaths - جميع الحقوق محفوظة
+  </footer>
+</div>
 
 </body>
 </html>
