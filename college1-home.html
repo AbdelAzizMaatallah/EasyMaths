@@ -4,57 +4,74 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>الأولى إعدادي - EasyMaths</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f4f6f8;
+      background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
       color: #333;
+      margin: 0;
     }
     nav.navbar {
       background-color: #0052cc;
     }
-    nav.navbar a.navbar-brand {
-      font-weight: 700;
-      font-size: 1.8rem;
+    .navbar-brand {
       color: #fff !important;
+      font-weight: bold;
+      font-size: 1.6rem;
     }
-    .main-buttons {
-      max-width: 700px;
-      margin: 80px auto;
+    .container-box {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .container-box h1 {
+      color: #003a99;
+      font-weight: 800;
+      margin-bottom: 20px;
+      font-size: 2.4rem;
+    }
+    .container-box p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 40px;
+    }
+    .section-links {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 25px;
-      align-items: center;
     }
-    .main-buttons a {
+    .section-button {
       background-color: #ffd43b;
       color: #003a99;
-      font-weight: 700;
-      padding: 14px 40px;
-      font-size: 1.3rem;
-      text-decoration: none;
+      font-weight: bold;
+      padding: 15px 30px;
+      font-size: 1.2rem;
       border-radius: 30px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.3s ease;
+      text-decoration: none;
+      transition: 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      min-width: 200px;
     }
-    .main-buttons a:hover {
+    .section-button:hover {
       background-color: #e6c432;
-    }
-    h2.title {
-      text-align: center;
-      margin-top: 50px;
-      font-weight: 700;
-      color: #0052cc;
+      transform: translateY(-3px);
     }
     footer {
       background-color: #002d72;
       color: #eee;
-      padding: 20px 0;
       text-align: center;
+      padding: 20px;
       font-size: 0.9rem;
-      margin-top: 80px;
+    }
+    @media (max-width: 600px) {
+      .container-box h1 {
+        font-size: 1.8rem;
+      }
+      .section-button {
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -66,18 +83,22 @@
   </div>
 </nav>
 
-<h2 class="title">الأولى إعدادي - مرحباً بك</h2>
+<div class="container-box">
+  <h1>📘 الأولى إعدادي</h1>
+  <p>اختر القسم الذي تود تصفحه 👇</p>
 
-<div class="main-buttons">
-  <a href="dros-1ac.html">📘 الدروس</a>
-  <a href="tamarin-1ac.html">📝 التمارين</a>
-  <a href="videos-1ac.html">🎥 الفيديوهات</a>
-  <a href="imti7anat-1ac.html">📄 الامتحانات</a>
+  <div class="section-links">
+    <a href="dros-1ac.html" class="section-button">📚 الدروس</a>
+    <a href="tamarin-1ac.html" class="section-button">📝 التمارين</a>
+    <a href="videos-1ac.html" class="section-button">🎥 الفيديوهات</a>
+    <a href="imti7anat-1ac.html" class="section-button">🧪 الامتحانات</a>
+  </div>
 </div>
 
 <footer>
   &copy; 2025 EasyMaths - جميع الحقوق محفوظة
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
