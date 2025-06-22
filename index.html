@@ -5,74 +5,67 @@
   <title>EasyMaths - الصفحة الرئيسية</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+
     body {
-      font-family: 'Cairo', sans-serif;
-      background-color: #ffffff;
-      color: #0d1b2a; /* أزرق غامق */
       margin: 0;
-      padding: 40px 20px;
-      min-height: 100vh;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      color: #fff;
       text-align: center;
+      height: 100vh;
+      background: url('images/background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
+
     h1 {
-      font-size: 3rem;
-      margin-bottom: 30px;
+      font-size: 4rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.5rem;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    }
+
+    .btn {
+      background-color: rgba(21, 101, 192, 0.85);
+      color: #ffeb3b;
       font-weight: 700;
-      color: #0d1b2a;
-    }
-    p.intro {
-      max-width: 700px;
-      margin: 0 auto 50px;
-      font-size: 1.25rem;
-      line-height: 1.6;
-      color: #0d1b2a;
-    }
-    section {
-      max-width: 700px;
-      margin: 0 auto 50px;
-      padding: 0 15px;
-    }
-    h2 {
-      font-weight: 700;
-      border-bottom: 4px solid #1b263b;
-      display: inline-block;
-      padding-bottom: 10px;
-      margin-bottom: 30px;
-      color: #1b263b;
-      font-size: 1.8rem;
-    }
-    a.button-link {
-      display: block;
-      margin: 15px auto;
-      max-width: 360px;
-      padding: 16px 30px;
-      background-color: #0d1b2a;
-      color: #ffffff;
-      font-size: 1.3rem;
-      font-weight: 700;
+      padding: 15px 40px;
+      border-radius: 40px;
       text-decoration: none;
-      border-radius: 45px;
-      box-shadow: 0 6px 18px rgba(13, 27, 42, 0.6);
-      transition: background-color 0.35s ease, color 0.35s ease;
-      cursor: pointer;
+      font-size: 1.4rem;
+      box-shadow: 0 6px 15px rgba(21,101,192,0.7);
+      transition: background-color 0.3s ease;
+      margin: 10px 0;
+      display: inline-block;
+      min-width: 200px;
     }
-    a.button-link:hover {
-      background-color: #1b263b;
-      color: #a0c4ff;
+
+    .btn:hover {
+      background-color: rgba(10, 50, 120, 0.9);
+      color: #fff;
     }
+
     @media (max-width: 480px) {
       h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
-      h2 {
-        font-size: 1.4rem;
-      }
-      a.button-link {
+      p {
         font-size: 1.1rem;
-        max-width: 100%;
       }
-      p.intro {
-        font-size: 1rem;
+      .btn {
+        font-size: 1.1rem;
+        padding: 12px 30px;
+        min-width: 150px;
       }
     }
   </style>
@@ -80,31 +73,12 @@
 <body>
 
   <h1>مرحبًا بك في EasyMaths</h1>
+  <p>منصة تعليمية شاملة لمادة الرياضيات للسلك الإعدادي والثانوي التأهيلي.</p>
 
-  <p class="intro">
-    منصة تعليمية شاملة لمادة الرياضيات للسلك الإعدادي والثانوي التأهيلي.  
-    تصفح الدروس، التمارين، الفروض، والفيديوهات بطريقة منظمة وسهلة الفهم.
-  </p>
-
-  <section>
-    <h2>الدروس</h2>
-    <a class="button-link" href="dros.html">عرض جميع الدروس</a>
-  </section>
-
-  <section>
-    <h2>التمارين</h2>
-    <a class="button-link" href="Tamarin.html">عرض جميع التمارين</a>
-  </section>
-
-  <section>
-    <h2>الفروض والامتحانات</h2>
-    <a class="button-link" href="imti7anat.html">عرض الفروض والامتحانات</a>
-  </section>
-
-  <section>
-    <h2>الفيديوهات</h2>
-    <a class="button-link" href="videos.html">عرض الفيديوهات التعليمية</a>
-  </section>
+  <a href="dros.html" class="btn">الدروس</a>
+  <a href="Tamarin.html" class="btn">التمارين</a>
+  <a href="imti7anat.html" class="btn">الفروض والامتحانات</a>
+  <a href="videos.html" class="btn">الفيديوهات</a>
 
 </body>
 </html>
