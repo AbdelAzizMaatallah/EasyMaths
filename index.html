@@ -6,20 +6,28 @@
 <title>EasyMaths - الصفحة الرئيسية</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+<!-- أيقونات Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 <style>
   body {
     font-family: 'Cairo', sans-serif;
-    background-color: #fff;
+    background: linear-gradient(135deg, #f0f4ff 0%, #d9e4ff 100%);
     color: #0d1b2a;
     padding-bottom: 50px;
   }
   nav.navbar {
-    background-color: #0052cc;
+    background: linear-gradient(90deg, #003a99, #0052cc);
   }
   nav.navbar a.navbar-brand {
     font-weight: 700;
     font-size: 1.8rem;
     color: #fff !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  nav.navbar a.navbar-brand img {
+    height: 35px;
   }
   nav.navbar .nav-link {
     color: #e0e0e0 !important;
@@ -30,34 +38,29 @@
   nav.navbar .nav-link.active {
     color: #ffd43b !important;
   }
-
   .header-text {
     max-width: 700px;
     margin: 70px auto 60px;
     padding: 40px 30px;
-    background: url('images/your-background.png') no-repeat center center;
-    background-size: contain;
-    background-repeat: no-repeat;
+    background: #fff;
     border-radius: 15px;
-    color: #0052cc;
-    font-weight: 700;
+    box-shadow: 0 8px 30px rgba(0, 82, 204, 0.15);
     text-align: center;
   }
-
   .header-text h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    color: #0052cc;
+    font-weight: 700;
   }
-
   .header-text p {
     font-weight: 400;
     font-size: 1.2rem;
     color: #0d1b2a;
   }
-
   .feature-buttons {
     max-width: 720px;
-    margin: 0 auto;
+    margin: 0 auto 70px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -65,22 +68,63 @@
     padding: 0 15px;
   }
   .feature-buttons a {
-    background-color: #0052cc;
+    background: linear-gradient(135deg, #0052cc, #003a99);
     color: #fff;
     padding: 15px 40px;
     font-weight: 700;
     font-size: 1.2rem;
     border-radius: 35px;
-    box-shadow: 0 6px 18px rgba(0, 82, 204, 0.6);
+    box-shadow: 0 6px 18px rgba(0, 58, 153, 0.6);
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
     flex: 1 1 220px;
     max-width: 260px;
     text-align: center;
   }
   .feature-buttons a:hover {
-    background-color: #003a99;
-    box-shadow: 0 8px 25px rgba(0, 58, 153, 0.8);
+    background: linear-gradient(135deg, #003a99, #001f4d);
+    box-shadow: 0 8px 25px rgba(0, 29, 77, 0.8);
+  }
+  .why-choose {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    padding: 0 15px;
+  }
+  .why-choose h2 {
+    color: #0052cc;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 2.4rem;
+  }
+  .features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  .feature-item {
+    background: white;
+    border-radius: 15px;
+    padding: 30px 25px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.07);
+    flex: 1 1 280px;
+    text-align: center;
+  }
+  .feature-item i {
+    font-size: 3rem;
+    color: #0052cc;
+    margin-bottom: 20px;
+  }
+  .feature-item h3 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #003a99;
+  }
+  .feature-item p {
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.5;
   }
   footer {
     background-color: #002d72;
@@ -88,7 +132,6 @@
     padding: 20px 0;
     text-align: center;
     font-size: 0.9rem;
-    margin-top: 80px;
   }
   @media (max-width: 480px) {
     .header-text {
@@ -104,11 +147,16 @@
     }
     .feature-buttons {
       gap: 15px;
+      margin-bottom: 40px;
     }
     .feature-buttons a {
       font-size: 1rem;
       padding: 12px 20px;
       max-width: 100%;
+    }
+    .features-list {
+      flex-direction: column;
+      gap: 25px;
     }
   }
 </style>
@@ -117,7 +165,10 @@
 
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="index.html">EasyMaths</a>
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="EasyMaths Logo" />
+      EasyMaths
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل التنقل">
       <span class="navbar-toggler-icon"></span>
@@ -141,11 +192,37 @@
 </div>
 
 <div class="feature-buttons container">
-  <a href="dros.html">الدروس</a>
-  <a href="exercices.html">التمارين</a>
-  <a href="imti7anat.html">الفروض والامتحانات</a>
-  <a href="videos.html">الفيديوهات</a>
+  <a href="dros.html"><i class="bi bi-book"></i> الدروس</a>
+  <a href="exercices.html"><i class="bi bi-pencil-square"></i> التمارين</a>
+  <a href="imti7anat.html"><i class="bi bi-file-earmark-text"></i> الفروض والامتحانات</a>
+  <a href="videos.html"><i class="bi bi-camera-video"></i> الفيديوهات</a>
 </div>
+
+<section class="why-choose">
+  <h2>لماذا تختار EasyMaths؟</h2>
+  <div class="features-list">
+    <div class="feature-item">
+      <i class="bi bi-journal-bookmark"></i>
+      <h3>دروس منظمة</h3>
+      <p>شرح مبسط وواضح لجميع الدروس مع أمثلة وتمارين متنوعة.</p>
+    </div>
+    <div class="feature-item">
+      <i class="bi bi-camera-reels"></i>
+      <h3>فيديوهات تعليمية</h3>
+      <p>فيديوهات تعليمية داعمة توضح المفاهيم بطريقة جذابة.</p>
+    </div>
+    <div class="feature-item">
+      <i class="bi bi-clipboard-check"></i>
+      <h3>تمارين واختبارات</h3>
+      <p>تمارين تطبيقية وفروض واختبارات تساعدك على تثبيت المعلومات.</p>
+    </div>
+    <div class="feature-item">
+      <i class="bi bi-person-badge"></i>
+      <h3>دعم مباشر</h3>
+      <p>متابعة وتوجيه مستمر من الأستاذ لضمان فهم شامل.</p>
+    </div>
+  </div>
+</section>
 
 <footer>
   &copy; 2025 EasyMaths - جميع الحقوق محفوظة
