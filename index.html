@@ -1,73 +1,79 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EasyMaths - اختيار المستوى</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EasyMaths - الصفحة الرئيسية</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom right, #e3f2fd, #bbdefb);
+      margin: 0;
+      background: url('background.jpg') center center / cover no-repeat;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      justify-content: space-between;
     }
-    header {
-      background-color: #0052cc;
-      color: white;
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 60px 20px;
       text-align: center;
-      padding: 25px;
     }
     h1 {
-      margin-top: 40px;
-      text-align: center;
+      font-size: 2.5rem;
       color: #003a99;
-      font-weight: 700;
+      font-weight: 800;
+      margin-bottom: 10px;
     }
-    .levels {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 40px;
-      gap: 25px;
+    p.description {
+      font-size: 1.2rem;
+      color: #555;
+      margin-bottom: 40px;
     }
-    .levels a {
+    .level-buttons a {
+      display: block;
       background-color: #ffd43b;
       color: #003a99;
       font-weight: 700;
       font-size: 1.3rem;
-      padding: 14px 35px;
+      padding: 15px;
+      margin: 15px auto;
+      width: 260px;
       border-radius: 30px;
       text-decoration: none;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     }
-    .levels a:hover {
+    .level-buttons a:hover {
       background-color: #e6c432;
+      transform: translateY(-3px);
     }
     footer {
       background-color: #002d72;
       color: #eee;
       text-align: center;
       padding: 15px;
-      margin-top: auto;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.9rem; }
+      .level-buttons a { width: 90%; }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <h2>EasyMaths</h2>
-</header>
-
-<h1>اختر مستواك الدراسي</h1>
-
-<div class="levels">
-  <a href="college1-home.html">الأولى إعدادي</a>
-  <a href="college2-home.html">الثانية إعدادي</a>
-  <a href="college3-home.html">الثالثة إعدادي</a>
+<div class="overlay">
+  <h1>مرحبًا بك في EasyMaths 📘</h1>
+  <p class="description">منصة تعليمية مخصصة لدعم تلاميذ السلك الإعدادي في مادة الرياضيات، عبر دروس، تمارين، فيديوهات وامتحانات تفاعلية.</p>
+  
+  <div class="level-buttons">
+    <a href="college1-home.html">الأولى إعدادي</a>
+    <a href="college2-home.html">الثانية إعدادي</a>
+    <a href="college3-home.html">الثالثة إعدادي</a>
+  </div>
 </div>
 
 <footer>
