@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>تسجيل الزوار مع اختيار المستوى</title>
+  <title>تسجيل الزوار - EasyMaths</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
   <style>
     body {
@@ -38,7 +38,7 @@
       font-weight: 600;
       color: #5a2d82;
     }
-    .form-control:focus {
+    .form-control:focus, .form-select:focus {
       border-color: #764ba2;
       box-shadow: 0 0 8px rgba(118,75,162,0.5);
     }
@@ -65,9 +65,9 @@
     <h2>تسجيل الزوار</h2>
 
     <div class="mb-3">
-      <label for="niveau" class="form-label">اختر المستوى</label>
+      <label for="niveau" class="form-label">المستوى</label>
       <select id="niveau" name="niveau" required class="form-select">
-        <option value="" disabled selected>-- اختر المستوى --</option>
+        <option value="" disabled>-- اختر المستوى --</option>
         <option value="الثانوي">الثانوي</option>
         <option value="الإعدادي">الإعدادي</option>
         <option value="الابتدائي">الابتدائي</option>
@@ -75,9 +75,9 @@
     </div>
 
     <div class="mb-3">
-      <label for="filiere" class="form-label">اختر المسلك</label>
+      <label for="filiere" class="form-label">المسلك</label>
       <select id="filiere" name="filiere" required class="form-select">
-        <option value="" disabled selected>-- اختر المسلك --</option>
+        <option value="" disabled>-- اختر المسلك --</option>
         <option value="علوم رياضية">علوم رياضية</option>
         <option value="علوم الحياة والأرض">علوم الحياة والأرض</option>
         <option value="آداب وفلسفة">آداب وفلسفة</option>
@@ -86,9 +86,9 @@
     </div>
 
     <div class="mb-3">
-      <label for="specialite" class="form-label">اختر الشعبة</label>
+      <label for="specialite" class="form-label">الشعبة</label>
       <select id="specialite" name="specialite" required class="form-select">
-        <option value="" disabled selected>-- اختر الشعبة --</option>
+        <option value="" disabled>-- اختر الشعبة --</option>
         <option value="رياضيات">رياضيات</option>
         <option value="فيزياء">فيزياء</option>
         <option value="علوم الحياة">علوم الحياة</option>
@@ -108,6 +108,24 @@
 
     <button type="submit" class="btn-submit">تسجيل</button>
   </form>
+
+  <script>
+    function getQueryParams() {
+      const params = {};
+      window.location.search.substring(1).split("&").forEach(pair => {
+        const [key, value] = pair.split("=");
+        if (key) params[decodeURIComponent(key)] = decodeURIComponent(value);
+      });
+      return params;
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = getQueryParams();
+      if(params.niveau) document.getElementById('niveau').value = params.niveau;
+      if(params.filiere) document.getElementById('filiere').value = params.filiere;
+      if(params.specialite) document.getElementById('specialite').value = params.specialite;
+    });
+  </script>
 
 </body>
 </html>
