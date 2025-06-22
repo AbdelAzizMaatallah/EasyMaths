@@ -86,28 +86,44 @@
     <a class="navbar-brand" href="index.html">EasyMaths</a>
   </div>
 </nav>
+<h2 class="page-title">📘 1APIC : Leçons</h2>
 
-<h2 class="page-title"> 1APIC : Leçons 📘 </h2>
+<!-- أزرار التبديل -->
+<div class="text-center my-4">
+  <button class="btn btn-outline-primary mx-2" onclick="showSemester('sem1')">📗 الدورة الأولى</button>
+  <button class="btn btn-outline-success mx-2" onclick="showSemester('sem2')">📘 الدورة الثانية</button>
+</div>
 
-<div class="lesson-grid">
-
+<!-- دروس الدورة الأولى -->
+<div id="sem1" class="lesson-grid">
   <div class="lesson-card">
     <h3>الأعداد العشرية</h3>
     <p>تعلم العمليات على الأعداد العشرية، الترتيب والتحويلات.</p>
     <a href="pdfs/decimals-1ac.pdf" target="_blank" class="btn-download">📥 تحميل الدرس</a>
   </div>
-
   <div class="lesson-card">
     <h3>التماثل المحوري</h3>
     <p>مفهوم التماثل المحوري وكيفية استعماله في الإنشاءات الهندسية.</p>
     <a href="pdfs/symmetry-1ac.pdf" target="_blank" class="btn-download">📥 تحميل الدرس</a>
   </div>
+</div>
 
+<!-- دروس الدورة الثانية -->
+<div id="sem2" class="lesson-grid" style="display: none;">
   <div class="lesson-card">
     <h3>القوى والأسس</h3>
     <p>شرح مبسط للقوى وقواعد الحساب باستعمال الأسس.</p>
     <a href="pdfs/power-1ac.pdf" target="_blank" class="btn-download">📥 تحميل الدرس</a>
   </div>
+</div>
+
+<!-- كود الجافاسكريبت -->
+<script>
+  function showSemester(semester) {
+    document.getElementById('sem1').style.display = (semester === 'sem1') ? 'flex' : 'none';
+    document.getElementById('sem2').style.display = (semester === 'sem2') ? 'flex' : 'none';
+  }
+</script>
 
   <!-- أضف المزيد من الدروس هنا -->
 
