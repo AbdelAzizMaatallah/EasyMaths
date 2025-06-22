@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>اختر مستواك الدراسي</title>
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f7f7f7;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: #6a1b9a;
+      margin-bottom: 20px;
+    }
+    select, button {
+      padding: 12px;
+      margin: 15px 10px;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      min-width: 250px;
+    }
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #4a148c;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>اختر مستواك الدراسي</h1>
+
+  <select id="sile">
+    <option value="">-- اختر السلك --</option>
+    <option value="ide">الإعدادي</option>
+    <option value="tahili">التأهيلي</option>
+  </select>
+
+  <div id="niveauDiv" style="display:none;">
+    <h2>المستوى الدراسي</h2>
+    <select id="niveau"></select>
+  </div>
+
+  <div id="filiereDiv" style="display:none;">
+    <h2>الشعبة / المسلك</h2>
+    <select id="filiere">
+      <option value="">-- اختر الشعبة --</option>
+      <option value="math">علوم رياضية</option>
+      <option value="svt">علوم الحياة</option>
+      <option value="lettres">آداب</option>
+      <option value="tech">تكنولوجيا</option>
+    </select>
+  </div>
+
+  <button id="go" style="display:none;">اذهب إلى المحتوى</button>
+
+  <script>
+    const sile = document.getElementById("sile");
+    const niveau = document.getElementById("niveau");
+    const filiere = document.getElementById("filiere");
+    const niveauDiv = document.getElementById("niveauDiv");
+    const filiereDiv = document.getElementById("filiereDiv");
+    const go = document.getElementById("go");
+
+    sile.addEventListener("change", () => {
+      const selected = sile.value;
+      go.style.display = "none";
+      filiereDiv.style.display = "none";
+
+      if (selected === "ide") {
+        niveau.innerHTML = `
+          <option value="">-- اختر المستوى --</option>
+          <option value="1coll">الأولى إعدادي</option>
+          <option value="2coll">الثانية إعدادي</option>
+          <option value="3coll">الثالثة إعدادي</option>`;
+        niveauDiv.style.display = "block";
+      } else if (selected === "tahili") {
+        niveau.innerHTML = `
+          <option value="">-- اختر المستوى --</option>
+          <option value="tc">الجذع المشترك</option>
+          <option value="1bac">الأولى باك</option>
+          <option value="2bac">الثانية باك</option>`;
+        niveauDiv.style.display = "block";
+      } else {
+        niveauDiv.style.display = "none";
+      }
+    });
+
+    niveau.addEventListener("change", () => {
+      if (sile.value === "tahili" && niveau.value !== "") {
+        filiereDiv.style.display = "block";
+        go.style.display = "none";
+      } else if (sile.value === "ide" && niveau.value !== "") {
+        filiereDiv.style.display = "none";
+        go.style.display = "inline-block";
+      }
+    });
+
+    filiere.addEventListener("change", () => {
+      if (filiere.value !== "") {
+        go.style.display = "inline-block";
+      } else {
+        go.style.display = "none";
+      }
+    });
+
+    go.addEventListener("click", () => {
+      let url = `content.html?silk=${sile.value}&niveau=${niveau.value}`;
+      if (sile.value === "tahili") {
+        url += `&filiere=${filiere.value}`;
+      }
+      window.location.href = url;
+    });
+  </script>
+
+</body>
+</html>
