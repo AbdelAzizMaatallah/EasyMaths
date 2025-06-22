@@ -7,55 +7,92 @@
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #fafafa;
+      background: linear-gradient(120deg, #6a1b9a, #8e24aa);
+      color: white;
       text-align: center;
       padding: 40px 20px;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     h1 {
-      color: #6a1b9a;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      font-size: 2.8rem;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
     }
     .section {
-      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 20px 30px;
+      width: 90%;
+      max-width: 700px;
+      margin: 20px 0;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+    .section h2 {
+      margin-bottom: 15px;
+      color: #f3e5f5;
+      border-bottom: 2px solid #dda0dd;
+      padding-bottom: 8px;
+      font-weight: 700;
     }
     a {
       display: block;
-      margin: 10px;
-      color: #4a148c;
+      margin: 8px 0;
+      color: #e1bee7;
       font-size: 1.1rem;
       text-decoration: none;
+      border-radius: 6px;
+      padding: 10px;
+      transition: background-color 0.3s ease;
     }
     a:hover {
-      text-decoration: underline;
+      background-color: rgba(255, 255, 255, 0.25);
+      color: white;
+    }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .section {
+        padding: 15px 20px;
+      }
+      a {
+        font-size: 1rem;
+        padding: 8px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1 id="title">تحميل...</h1>
+  <h1 id="title">جار التحميل...</h1>
 
   <div class="section">
     <h2>الدروس</h2>
-    <div id="lessons"></div>
+    <div id="lessons">لا توجد دروس متاحة.</div>
   </div>
 
   <div class="section">
     <h2>التمارين</h2>
-    <div id="exercises"></div>
+    <div id="exercises">لا توجد تمارين متاحة.</div>
   </div>
 
   <div class="section">
     <h2>الفروض والامتحانات</h2>
-    <div id="tests"></div>
+    <div id="tests">لا توجد فروض أو امتحانات متاحة.</div>
   </div>
 
   <script>
     function getQueryParams() {
       const params = {};
       const query = window.location.search.substring(1);
+      if (!query) return params;
       query.split("&").forEach(part => {
         const [key, value] = part.split("=");
-        params[key] = decodeURIComponent(value);
+        if(key) params[key] = decodeURIComponent(value || "");
       });
       return params;
     }
@@ -66,18 +103,28 @@
     const exercises = document.getElementById("exercises");
     const tests = document.getElementById("tests");
 
-    // عرض العنوان حسب المعطيات
+    if(!params.silk || !params.niveau){
+      title.textContent = "خطأ: لم يتم تحديد السلك أو المستوى.";
+      lessons.textContent = "";
+      exercises.textContent = "";
+      tests.textContent = "";
+      throw new Error("Missing parameters");
+    }
+
+    // بناء عنوان الصفحة
     let label = "";
     if (params.silk === "ide") label += "السلك الإعدادي - ";
-    if (params.silk === "tahili") label += "السلك التأهيلي - ";
+    else if (params.silk === "tahili") label += "السلك التأهيلي - ";
+    else label += "سلك غير معروف - ";
 
     switch (params.niveau) {
       case "1coll": label += "الأولى إعدادي"; break;
       case "2coll": label += "الثانية إعدادي"; break;
       case "3coll": label += "الثالثة إعدادي"; break;
       case "tc": label += "الجذع المشترك"; break;
-      case "1bac": label += "الأولى باك"; break;
-      case "2bac": label += "الثانية باك"; break;
+      case "1bac": label += "الأولى باكالوريا"; break;
+      case "2bac": label += "الثانية باكالوريا"; break;
+      default: label += params.niveau; break;
     }
 
     if (params.filiere) {
@@ -87,28 +134,31 @@
         case "svt": label += "علوم الحياة"; break;
         case "lettres": label += "آداب"; break;
         case "tech": label += "تكنولوجيا"; break;
+        default: label += params.filiere; break;
       }
     }
 
-    title.innerText = label;
+    title.textContent = label;
 
-    // مثال: توليد روابط حسب المعطيات
-    // ستحتاج إلى تنظيم ملفاتك مثل: pdf/2bac/math/lessons/001.pdf
-    const path = `pdf/${params.niveau}/${params.filiere || 'general'}`;
+    // مسار الملفات: عدل حسب تنظيمك للمجلدات والملفات
+    const basePath = `pdf/${params.niveau}/${params.filiere || 'general'}`;
 
+    // توليد روابط الدروس
     lessons.innerHTML = `
-      <a href="${path}/lessons/001.pdf" target="_blank">الدرس 1</a>
-      <a href="${path}/lessons/002.pdf" target="_blank">الدرس 2</a>
+      <a href="${basePath}/lessons/001.pdf" target="_blank" rel="noopener noreferrer">الدرس 1</a>
+      <a href="${basePath}/lessons/002.pdf" target="_blank" rel="noopener noreferrer">الدرس 2</a>
     `;
 
+    // توليد روابط التمارين
     exercises.innerHTML = `
-      <a href="${path}/exercises/001.pdf" target="_blank">تمرين 1</a>
-      <a href="${path}/exercises/002.pdf" target="_blank">تمرين 2</a>
+      <a href="${basePath}/exercises/001.pdf" target="_blank" rel="noopener noreferrer">تمرين 1</a>
+      <a href="${basePath}/exercises/002.pdf" target="_blank" rel="noopener noreferrer">تمرين 2</a>
     `;
 
+    // توليد روابط الفروض والامتحانات
     tests.innerHTML = `
-      <a href="${path}/tests/001.pdf" target="_blank">فرض رقم 1</a>
-      <a href="${path}/tests/002.pdf" target="_blank">امتحان وطني</a>
+      <a href="${basePath}/tests/001.pdf" target="_blank" rel="noopener noreferrer">فرض 1</a>
+      <a href="${basePath}/tests/002.pdf" target="_blank" rel="noopener noreferrer">امتحان وطني</a>
     `;
   </script>
 
