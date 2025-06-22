@@ -3,165 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EasyMaths - المنصة التعليمية</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+  <title>EasyMaths - اختيار القسم</title>
   <style>
     body {
       font-family: 'Cairo', sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
-    }
-    nav.navbar {
-      background-color: #0052cc;
-    }
-    nav.navbar a.navbar-brand {
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: #fff !important;
-    }
-    nav.navbar .nav-link {
-      color: #e0e0e0 !important;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    nav.navbar .nav-link:hover,
-    nav.navbar .nav-link.active {
-      color: #ffd43b !important;
-    }
-    .hero-section {
-      background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
-      color: white;
-      padding: 100px 20px;
+      background: #f4f4f4;
+      padding: 30px;
       text-align: center;
-      border-radius: 0 0 60px 60px;
-      box-shadow: inset 0 0 0 2000px rgba(0, 82, 204, 0.6);
     }
-    .hero-section h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      margin-bottom: 15px;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    h1, h2 {
+      color: #4a148c;
     }
-    .hero-section p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
-    }
-    .btn-primary {
-      background-color: #ffd43b;
-      border: none;
-      color: #0052cc;
-      font-weight: 700;
-      padding: 12px 30px;
-      font-size: 1.1rem;
-      border-radius: 30px;
-      transition: background-color 0.3s ease;
-    }
-    .btn-primary:hover {
-      background-color: #e6c432;
-      color: #003a99;
-    }
-    .features {
-      margin: 60px 0 40px;
-    }
-    .feature-card {
-      background: white;
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      height: 100%;
-    }
-    .feature-card:hover {
-      transform: translateY(-10px);
-    }
-    .feature-card h3 {
-      margin-bottom: 15px;
-      color: #0052cc;
-      font-weight: 700;
-    }
-    .feature-card p {
-      color: #555;
+    select, button {
+      padding: 12px;
+      margin: 10px;
       font-size: 1rem;
-      margin-bottom: 20px;
-      line-height: 1.4;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      min-width: 220px;
     }
-    footer {
-      background-color: #002d72;
-      color: #eee;
-      padding: 20px 0;
-      text-align: center;
-      font-size: 0.9rem;
-      margin-top: 80px;
+    button {
+      background-color: #6a1b9a;
+      color: white;
+      border: none;
+      cursor: pointer;
     }
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 2.4rem;
-      }
-      .hero-section p {
-        font-size: 1rem;
-      }
+    button:hover {
+      background-color: #4a148c;
     }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">EasyMaths</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="تبديل التنقل">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link active" href="index.html">الرئيسية</a></li>
-        <li class="nav-item"><a class="nav-link" href="dros.html">الدروس</a></li>
-        <li class="nav-item"><a class="nav-link" href="exercices.html">التمارين</a></li>
-        <li class="nav-item"><a class="nav-link" href="videos.html">الفيديوهات</a></li>
-        <li class="nav-item"><a class="nav-link" href="imti7anat.html">الامتحانات</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<section class="hero-section">
   <h1>مرحبا بك في EasyMaths</h1>
-  <p>منصة تعليمية حديثة تساعدك على فهم الرياضيات بسهولة ومتعة.</p>
-  <a href="dros.html" class="btn btn-primary">ابدأ التعلم الآن</a>
-<a href="register.html" class="btn btn-primary">تسجيل الزوار</a>
-</section>
+  <h2>اختر السلك</h2>
 
-<div class="container features">
-  <div class="row g-4">
-    <div class="col-md-4">
-      <div class="feature-card">
-        <h3>الدروس المنظمة</h3>
-        <p>دروس شاملة ومنظمة تغطي كل المواضيع الأساسية بأسلوب مبسط وواضح.</p>
-        <a href="dros.html" class="btn btn-primary">عرض الدروس</a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="feature-card">
-        <h3>التمارين التفاعلية</h3>
-        <p>تمارين متنوعة مع حلول تساعدك على التطبيق العملي وفهم أفضل.</p>
-        <a href="exercices.html" class="btn btn-primary">ابدأ التمارين</a>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="feature-card">
-        <h3>شروحات الفيديو</h3>
-        <p>فيديوهات تعليمية تشرح المفاهيم بأسلوب بسيط وواضح.</p>
-        <a href="videos.html" class="btn btn-primary">شاهد الفيديوهات</a>
-      </div>
-    </div>
+  <select id="sileSelect">
+    <option value="">-- اختر السلك --</option>
+    <option value="ide">الإعدادي</option>
+    <option value="tahili">التأهيلي</option>
+  </select>
+
+  <div id="niveauDiv" style="display:none;">
+    <h2>اختر المستوى</h2>
+    <select id="niveauSelect"></select>
   </div>
-</div>
-<footer>
-  &copy; 2025 EasyMaths - جميع الحقوق محفوظة
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <div id="filiereDiv" style="display:none;">
+    <h2>اختر الشعبة / المسلك</h2>
+    <select id="filiereSelect">
+      <option value="">-- اختر الشعبة --</option>
+      <option value="sciencesMath">علوم رياضية</option>
+      <option value="sciencesVie">علوم الحياة</option>
+      <option value="lettres">آداب</option>
+      <option value="technologie">تكنولوجيا</option>
+    </select>
+  </div>
+
+  <button id="goBtn" style="display:none;">اذهب إلى المحتوى</button>
+
+  <script>
+    const sileSelect = document.getElementById('sileSelect');
+    const niveauDiv = document.getElementById('niveauDiv');
+    const niveauSelect = document.getElementById('niveauSelect');
+    const filiereDiv = document.getElementById('filiereDiv');
+    const filiereSelect = document.getElementById('filiereSelect');
+    const goBtn = document.getElementById('goBtn');
+
+    sileSelect.addEventListener('change', () => {
+      const sile = sileSelect.value;
+      if (sile === "ide") {
+        niveauSelect.innerHTML = `
+          <option value="">-- اختر المستوى --</option>
+          <option value="1coll">الأولى إعدادي</option>
+          <option value="2coll">الثانية إعدادي</option>
+          <option value="3coll">الثالثة إعدادي</option>`;
+        filiereDiv.style.display = "none";
+      } else if (sile === "tahili") {
+        niveauSelect.innerHTML = `
+          <option value="">-- اختر المستوى --</option>
+          <option value="tc">الجذع المشترك</option>
+          <option value="1bac">الأولى باكالوريا</option>
+          <option value="2bac">الثانية باكالوريا</option>`;
+      }
+      niveauDiv.style.display = "block";
+      goBtn.style.display = "none";
+    });
+
+    niveauSelect.addEventListener('change', () => {
+      const sile = sileSelect.value;
+      const niveau = niveauSelect.value;
+      if (sile === "tahili" && niveau !== "") {
+        filiereDiv.style.display = "block";
+        goBtn.style.display = "none";
+      } else if (sile === "ide" && niveau !== "") {
+        filiereDiv.style.display = "none";
+        goBtn.style.display = "inline-block";
+      }
+    });
+
+    filiereSelect.addEventListener('change', () => {
+      if (filiereSelect.value !== "") {
+        goBtn.style.display = "inline-block";
+      } else {
+        goBtn.style.display = "none";
+      }
+    });
+
+    goBtn.addEventListener('click', () => {
+      const sile = sileSelect.value;
+      const niveau = niveauSelect.value;
+      const filiere = filiereSelect.value;
+      let url = `content.html?silk=${sile}&niveau=${niveau}`;
+      if (sile === "tahili") {
+        url += `&filiere=${filiere}`;
+      }
+      window.location.href = url;
+    });
+  </script>
+
 </body>
 </html>
